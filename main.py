@@ -4,7 +4,7 @@ import pytesseract
 import csv
 import helpers
 
-directory = "./data"
+directory = "./data/tests"
 files = Path(directory).glob("*.jpg")
 
 data = []
@@ -40,7 +40,7 @@ for file in files:
     data.append(row)
 
 print(data)
-with open('tests3.csv', 'w', newline='', encoding="utf-8") as csvfile:
+with open('data/tests/output/test.csv', 'w', newline='', encoding="utf-8") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fields)
     writer.writeheader()
     writer.writerows(data)
