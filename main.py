@@ -6,7 +6,7 @@ import helpers
 
 def get_row(file: Path, fields: list):
     img = Image.open(file)
-    extracted_text = pytesseract.image_to_string(img, "eng+khm")
+    extracted_text = pytesseract.image_to_string(img, "eng+khm", config="--psm 4")
     lines = extracted_text.splitlines()
     row = {}
     try:
