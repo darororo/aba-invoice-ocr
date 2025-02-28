@@ -44,12 +44,10 @@ def get_row(file: Path, fields: list):
     return row
 
 def main(): 
-    directory = "data/tests"
+    directory = "YOUR/IMAGES/DIRECTORY"
     files = Path(directory).glob("*.jpg")
 
     fields = ["reference #", "transaction date", "time",  "remark", "amount-us", "amount-kh", "seller", "original amount", "from account"]
-    r = get_row("data/aba-khr-2.jpg", fields)
-    print(r)
 
     data = []
     for file in files:
@@ -59,7 +57,7 @@ def main():
         except Exception as e:
             print(e)
             try:
-                with open(directory + "/errors/log.txt", "a", newline="", encoding="utf-8") as errLog:
+                with open(directory + "/errors.txt", "a", newline="", encoding="utf-8") as errLog:
                     message = file.name + ": " + str(e)
                     errLog.write(message + "\n")
             except Exception as e:
@@ -68,7 +66,7 @@ def main():
             data.append(row)
 
     print(data)
-    with open(directory + "/output/out2.csv", 'w', newline='', encoding="utf-8") as csvfile:
+    with open(directory + "/out.csv", 'w', newline='', encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fields)
         writer.writeheader()
         writer.writerows(data)
