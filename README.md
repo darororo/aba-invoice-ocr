@@ -19,7 +19,9 @@ You may set the directory variable to the folder where your images are stored.
 
 - Make sure you have tesseract installed on your pc. https://tesseract-ocr.github.io
 
-- Open the project in your terminal and install the python dependencies. `pip install -r requirements.txt`. Using a virtual environment is recommended.
+- Open the project in your terminal and install the python dependencies
+
+  by running `pip install -r requirements.txt`. Using a virtual environment is recommended.
 
 ## Run the script
 
